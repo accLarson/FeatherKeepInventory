@@ -1,0 +1,7 @@
+name: FeatherKeepInventory
+version: '${project.version}'
+main: com.zerek.featherkeepinventory.FeatherKeepInventory
+api-version: 1.18
+depend: [ LuckPerms ]
+authors: [ Zerek ]
+description: Adds effects to players when they first join

@@ -1,0 +1,30 @@
+new-minutes: 60
+new-message: "<white>• <#91d1bd><PLAYER> <#5d9d88>is new and has keep-inventory for <#91d1bd><MINS> minutes."
+keep: "<#846d91>Your keep-inventory status is still active. New players have keep-inventory for 1 hour."
+timer-remove-keep: "<#846d91>You've played for 1 hour! Your keep-inventory status has been removed."
+removed-keep: "<#846d91>Your keep-inventory status has been removed."
+remove-strength: "<#846d91>Strength effect removed while you have keep-inventory. (Abuse Prevention)"
+banned-equipment:
+  - DIAMOND_HELMET
+  - DIAMOND_CHESTPLATE
+  - DIAMOND_LEGGINGS
+  - DIAMOND_BOOTS
+  - NETHERITE_HELMET
+  - NETHERITE_CHESTPLATE
+  - NETHERITE_LEGGINGS
+  - NETHERITE_BOOTS
+  - ELYTRA
+  - IRON_SWORD
+  - DIAMOND_SWORD
+  - NETHERITE_SWORD
+  - IRON_AXE
+  - DIAMOND_AXE
+  - NETHERITE_AXE
+  - TRIDENT
+  - END_CRYSTAL
+banned-effects:
+  - INCREASE_DAMAGE
+banned-blocks:
+  - RESPAWN_ANCHOR
+  - TNT
+  - NETHERITE_BLOCK
