@@ -1,5 +1,5 @@
 new-minutes: 60
-new-message: "<white>• <#91d1bd><PLAYER> <#5d9d88>is new and has keep-inventory for <#91d1bd><MINS> minutes."
+new-message: "<white>• <#91d1bd><player> <#5d9d88>is new and has keep-inventory for <#91d1bd><mins> minutes."
 keep: "<#846d91>Your keep-inventory status is still active. New players have keep-inventory for 1 hour."
 timer-remove-keep: "<#846d91>You've played for 1 hour! Your keep-inventory status has been removed."
 removed-keep: "<#846d91>Your keep-inventory status has been removed."

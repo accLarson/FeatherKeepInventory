@@ -17,7 +17,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
         if (!event.getPlayer().hasPlayedBefore()) {
-            plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("new-message"), Placeholder.unparsed("PLAYER", event.getPlayer().getName()), Placeholder.unparsed("MINS", plugin.getConfigMap().get("new-minutes").toString())));
+            plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("new-message"), Placeholder.unparsed("player", event.getPlayer().getName()), Placeholder.unparsed("mins", plugin.getConfigMap().get("new-minutes").toString())));
             plugin.getLuckPerms().getUserManager().modifyUser(event.getPlayer().getUniqueId(), user -> user.data().add(Node.builder("feather.keepinventory.keep").build()));
         }
     }
