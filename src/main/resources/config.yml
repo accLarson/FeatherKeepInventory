@@ -5,10 +5,10 @@ timer-remove-keep: "<#846d91>You've played for 1 hour! Your keep-inventory statu
 removed-keep: "<#846d91>Your keep-inventory status has been removed. (Abuse Prevention)"
 remove-strength: "<#846d91>Strength effect removed while you have keep-inventory. (Abuse Prevention)"
 
-staff-keep: "<#555555><player> still has their keep-inventory status."
-staff-timer-remove-keep: "<#555555><player> has played for 1 hour! Their keep-inventory status has been removed."
-staff-removed-keep: "<#555555><player>'s keep-inventory status has been removed. (Abuse Prevention)"
-staff-remove-strength: "<#555555><player>'s strength effect has been removed while keep-inventory is active."
+staff-keep: "<#757575><player> still has their keep-inventory status."
+staff-timer-remove-keep: "<#757575><player> has played for 1 hour! Their keep-inventory status has been removed."
+staff-removed-keep: "<#757575><player>'s keep-inventory status has been removed. (Abuse Prevention)"
+staff-remove-strength: "<#757575><player>'s strength effect has been removed while keep-inventory is active."
 
 banned-equipment:
   - DIAMOND_HELMET

@@ -1,10 +1,9 @@
-package com.zerek.featherkeepinventory.listeners;
+package dev.zerek.featherkeepinventory.listeners;
 
-import com.zerek.featherkeepinventory.FeatherKeepInventory;
+import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.luckperms.api.node.Node;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -26,7 +25,7 @@ public class BlockPlaceListener implements Listener {
                 plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
                     staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-keep"), Placeholder.unparsed("player", event.getPlayer().getName())));
                 });
-                plugin.getLogger().info(event.getPlayer().getName() + " - feather.keepinventory.keep removed - Placed a banned block: " + event.getBlock().getType().name());
+                plugin.().info(event.getPlayer().getName() + " - feather.keepinventory.keep removed - Placed a banned block: " + event.getBlock().getType().name());
             }
         }
     }

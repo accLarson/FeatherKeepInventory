@@ -1,7 +1,6 @@
-package com.zerek.featherkeepinventory.tasks;
+package dev.zerek.featherkeepinventory.tasks;
 
-import com.zerek.featherkeepinventory.FeatherKeepInventory;
-import net.kyori.adventure.text.Component;
+import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.luckperms.api.node.Node;

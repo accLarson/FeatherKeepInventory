@@ -1,6 +1,6 @@
-package com.zerek.featherkeepinventory.listeners;
+package dev.zerek.featherkeepinventory.listeners;
 
-import com.zerek.featherkeepinventory.FeatherKeepInventory;
+import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.event.EventHandler;
