@@ -28,7 +28,7 @@ public class EntityDamageByEntityListener implements Listener {
         playerEquipment.add(p.getEquipment().getItemInMainHand().getType().name());
         playerEquipment.add(p.getEquipment().getItemInOffHand().getType().name());
         playerEquipment.retainAll((List<String>) plugin.getConfigMap().get("banned-equipment"));
-        return playerEquipment.size() == 0;
+        return playerEquipment.isEmpty();
     }
 
     private boolean isPVP(Entity attacker, Entity defender){
@@ -39,7 +39,7 @@ public class EntityDamageByEntityListener implements Listener {
         ArrayList<String> playerEffectsList = new ArrayList<String>();
         p.getActivePotionEffects().forEach(e -> playerEffectsList.add(e.getType().getName()));
         playerEffectsList.retainAll((List<String>) plugin.getConfigMap().get("banned-effects"));
-        return playerEffectsList.size() == 0;
+        return playerEffectsList.isEmpty();
     }
 
     @EventHandler
@@ -49,7 +49,7 @@ public class EntityDamageByEntityListener implements Listener {
         if (isPVP(event.getDamager() , event.getEntity()) && event.getDamager().hasPermission("feather.keepinventory.keep") && !event.getDamager().hasPermission("group.administrator")) {
             Player p = (Player) event.getDamager();
             if (!effectPass(p)) {
-                p.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+                p.removePotionEffect(PotionEffectType.STRENGTH);
                 p.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("removed-strength")));
                 plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
                     staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-strength"), Placeholder.unparsed("player", p.getName())));
