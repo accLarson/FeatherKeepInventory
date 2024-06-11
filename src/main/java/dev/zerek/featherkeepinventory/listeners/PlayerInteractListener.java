@@ -25,7 +25,7 @@ public class PlayerInteractListener implements Listener {
                 plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
                     staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-keep"), Placeholder.unparsed("player", event.getPlayer().getName())));
                 });
-                plugin.().info(event.getPlayer().getName() + " - feather.keepinventory.keep removed - Placing Crystal");
+                plugin.getLogger().info(event.getPlayer().getName() + " - feather.keepinventory.keep removed - Placing Crystal");
 
             }
         }
