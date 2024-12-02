@@ -5,3 +5,6 @@ api-version: 1.20
 depend: [ LuckPerms ]
 authors: [ Zerek ]
 description: Adds effects to players when they first join
+permissions:
+  feather.keepinventory.keep:
+    default: false

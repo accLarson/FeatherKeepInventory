@@ -29,7 +29,7 @@ banned-equipment:
   - TRIDENT
   - END_CRYSTAL
 banned-effects:
-  - INCREASE_DAMAGE
+  - STRENGTH
 banned-blocks:
   - RESPAWN_ANCHOR
   - TNT

@@ -18,7 +18,7 @@ public class PlayerInteractListener implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event){
-        if (event.getPlayer().hasPermission("feather.keepinventory.keep") && !event.getPlayer().hasPermission("group.administrator")){
+        if (event.getPlayer().hasPermission("feather.keepinventory.keep")){
             if (Action.RIGHT_CLICK_BLOCK == event.getAction() && Material.OBSIDIAN == event.getClickedBlock().getType() && Material.END_CRYSTAL == event.getMaterial()) {
                 plugin.getLuckPerms().getUserManager().modifyUser(event.getPlayer().getUniqueId(), user -> user.data().remove(Node.builder("feather.keepinventory.keep").build()));
                 event.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("removed-keep")));

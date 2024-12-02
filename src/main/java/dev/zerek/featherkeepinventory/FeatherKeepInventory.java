@@ -22,7 +22,7 @@ public final class FeatherKeepInventory extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerDeathListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this),this);
-        getServer().getScheduler().scheduleSyncRepeatingTask(this, new CheckTimeStatTask(this), 0L, 1200L);
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, new CheckTimeStatTask(this), 0L, 1000L);
     }
 
     @Override

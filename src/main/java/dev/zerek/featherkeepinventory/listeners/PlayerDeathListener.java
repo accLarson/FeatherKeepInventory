@@ -15,7 +15,7 @@ public class PlayerDeathListener implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event){
-        if (event.getPlayer().hasPermission("feather.keepinventory.keep") && !event.getPlayer().hasPermission("group.administrator")){
+        if (event.getPlayer().hasPermission("feather.keepinventory.keep")){
             event.setKeepInventory(true);
             event.getDrops().clear();
             event.setShouldDropExperience(false);

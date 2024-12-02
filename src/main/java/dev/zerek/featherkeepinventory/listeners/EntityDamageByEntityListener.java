@@ -46,7 +46,7 @@ public class EntityDamageByEntityListener implements Listener {
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 
         //If the damage is PvP and the attacker has keep inventory and is not an admin.
-        if (isPVP(event.getDamager() , event.getEntity()) && event.getDamager().hasPermission("feather.keepinventory.keep") && !event.getDamager().hasPermission("group.administrator")) {
+        if (isPVP(event.getDamager() , event.getEntity()) && event.getDamager().hasPermission("feather.keepinventory.keep")) {
             Player p = (Player) event.getDamager();
             if (!effectPass(p)) {
                 p.removePotionEffect(PotionEffectType.STRENGTH);
@@ -54,7 +54,7 @@ public class EntityDamageByEntityListener implements Listener {
                 plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
                     staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-strength"), Placeholder.unparsed("player", p.getName())));
                 });
-                plugin.getLogger().info(p.getName() + " Attacked with INCREASE_DAMAGE effect while also having new player keep-inventory. INCREASE_DAMAGE removed.");
+                plugin.getLogger().info(p.getName() + " Attacked with STRENGTH effect while also having new player keep-inventory. STRENGTH removed.");
 
             }
             if (!equipmentPass(p)) {
@@ -67,7 +67,7 @@ public class EntityDamageByEntityListener implements Listener {
             }
 
             //If the damage is PvP and the defender has keep inventory and is not an admin.
-            if (isPVP(event.getDamager(), event.getEntity()) && event.getEntity().hasPermission("feather.keepinventory.keep") && !event.getEntity().hasPermission("group.administrator")) {
+            if (isPVP(event.getDamager(), event.getEntity()) && event.getEntity().hasPermission("feather.keepinventory.keep")) {
                 if (!equipmentPass((Player) event.getEntity())){
                     plugin.getLuckPerms().getUserManager().modifyUser(event.getEntity().getUniqueId(), user -> user.data().remove(Node.builder("feather.keepinventory.keep").build()));
                     event.getEntity().sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("removed-keep")));
