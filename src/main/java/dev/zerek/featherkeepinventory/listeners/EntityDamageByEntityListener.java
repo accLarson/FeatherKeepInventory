@@ -61,7 +61,7 @@ public class EntityDamageByEntityListener implements Listener {
                 plugin.getLuckPerms().getUserManager().modifyUser(p.getUniqueId(), user -> user.data().remove(Node.builder("feather.keepinventory.keep").build()));
                 p.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("removed-keep")));
                 plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
-                    staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-keep"), Placeholder.unparsed("player", p.getName())));
+                    staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-removed-keep"), Placeholder.unparsed("player", p.getName())));
                 });
                 plugin.getLogger().info(p.getName() + " - feather.keepinventory.keep removed - Attacked with high tier equipment");
             }
@@ -72,7 +72,7 @@ public class EntityDamageByEntityListener implements Listener {
                     plugin.getLuckPerms().getUserManager().modifyUser(event.getEntity().getUniqueId(), user -> user.data().remove(Node.builder("feather.keepinventory.keep").build()));
                     event.getEntity().sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("removed-keep")));
                     plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
-                        staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-remove-keep"), Placeholder.unparsed("player", p.getName())));
+                        staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-removed-keep"), Placeholder.unparsed("player", p.getName())));
                     });
                     plugin.getLogger().info(event.getEntity().getName() + " - feather.keepinventory.keep removed - Was attacked while wearing high tier equipment");
 

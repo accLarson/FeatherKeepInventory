@@ -8,3 +8,5 @@ description: Adds effects to players when they first join
 permissions:
   feather.keepinventory.keep:
     default: false
+  feather.keepinventory.staff:
+    default: op

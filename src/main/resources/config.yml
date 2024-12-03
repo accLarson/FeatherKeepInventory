@@ -1,9 +1,10 @@
 new-minutes: 60
 new-message: "<white>• <#91d1bd><player> <#5d9d88>is new and has keep-inventory for <#91d1bd><mins> minutes."
 keep: "<#846d91>Your keep-inventory status is still active. New players have keep-inventory for 1 hour."
-timer-remove-keep: "<#846d91>You've played for 1 hour! Your keep-inventory status has been removed."
+timer-remove-keep: "<#846d91>You've played for 1 hour! <br><#c0a1d1>Your keep-inventory status has been removed."
 removed-keep: "<#846d91>Your keep-inventory status has been removed. (Abuse Prevention)"
 remove-strength: "<#846d91>Strength effect removed while you have keep-inventory. (Abuse Prevention)"
+pickup-delay-message: "<#c0a1d1>Only you can pick up this item for 8 SECONDS. <br><#846d91>You get pickup priority on dropped items for your 1st hour."
 
 staff-keep: "<#757575><player> still has their keep-inventory status."
 staff-timer-remove-keep: "<#757575><player> has played for 1 hour! Their keep-inventory status has been removed."
