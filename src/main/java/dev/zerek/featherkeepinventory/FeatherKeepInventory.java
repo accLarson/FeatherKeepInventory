@@ -15,14 +15,16 @@ public final class FeatherKeepInventory extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        luckPerms = Bukkit.getServicesManager().getRegistration(LuckPerms.class).getProvider();
         getConfig().getKeys(false).forEach(c -> configMap.put(c,getConfig().get(c)));
-        this.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this),this);
+
+        luckPerms = Bukkit.getServicesManager().getRegistration(LuckPerms.class).getProvider();
+
         this.getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerDeathListener(this),this);
-        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerDropItemListener(this),this);
+        this.getServer().getPluginManager().registerEvents(new PlayerChangedWorldListener(this),this);
+
         getServer().getScheduler().scheduleSyncRepeatingTask(this, new CheckTimeStatTask(this), 0L, 1000L);
     }
 

@@ -1,37 +1,15 @@
 new-minutes: 60
 new-message: "<white>• <#91d1bd><player> <#5d9d88>is new and has keep-inventory for <#91d1bd><mins> minutes."
-keep: "<#846d91>Your keep-inventory status is still active. New players have keep-inventory for 1 hour."
+
+killed-announce: "<white>• <#e2b492><player> <#b98863>has <#e2b492>keep-inventory <#b98863>so no items were dropped."
+killing-announce: "<white>• <#e2b492><attacker> <#b98863>has <#e2b492>keep-inventory <#b98863>so <#e2b492><defender> <#b98863>not drop items."
+
 timer-remove-keep: "<#846d91>You've played for 1 hour! <br><#c0a1d1>Your keep-inventory status has been removed."
-removed-keep: "<#846d91>Your keep-inventory status has been removed. (Abuse Prevention)"
-remove-strength: "<#846d91>Strength effect removed while you have keep-inventory. (Abuse Prevention)"
-pickup-delay-message: "<#c0a1d1>Only you can pick up this item for 8 SECONDS. <br><#846d91>You get pickup priority on dropped items for your 1st hour."
+staff-timer-remove-keep: "<#757575><player> has played for 1 hour! <br><#757575>Their keep-inventory status has been removed."
 
-staff-keep: "<#757575><player> still has their keep-inventory status."
-staff-timer-remove-keep: "<#757575><player> has played for 1 hour! Their keep-inventory status has been removed."
-staff-removed-keep: "<#757575><player>'s keep-inventory status has been removed. (Abuse Prevention)"
-staff-remove-strength: "<#757575><player>'s strength effect has been removed while keep-inventory is active."
+end-remove-keep: "<#846d91>You've entered The End! <br><#c0a1d1>Your keep-inventory status has been removed."
+staff-end-remove-keep: "<#757575><player> has entered The End! <br><#757575>Their keep-inventory status has been removed."
 
-banned-equipment:
-  - DIAMOND_HELMET
-  - DIAMOND_CHESTPLATE
-  - DIAMOND_LEGGINGS
-  - DIAMOND_BOOTS
-  - NETHERITE_HELMET
-  - NETHERITE_CHESTPLATE
-  - NETHERITE_LEGGINGS
-  - NETHERITE_BOOTS
-  - ELYTRA
-  - IRON_SWORD
-  - DIAMOND_SWORD
-  - NETHERITE_SWORD
-  - IRON_AXE
-  - DIAMOND_AXE
-  - NETHERITE_AXE
-  - TRIDENT
-  - END_CRYSTAL
-banned-effects:
-  - STRENGTH
-banned-blocks:
-  - RESPAWN_ANCHOR
-  - TNT
-  - NETHERITE_BLOCK
+pvp-inform: "<#c0a1d1>You have keep-inventory; players you kill <#f1d6ff>won’t drop items<#c0a1d1>. <br><#846d91>New players have keep-inventory for their 1st hour."
+pickup-inform: "<#c0a1d1>Only you can pick up that item for <#f1d6ff>8 SECONDS<#c0a1d1>. <br><#846d91>You get pickup priority on items you drop for your 1st hour."
+

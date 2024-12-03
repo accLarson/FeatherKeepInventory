@@ -22,7 +22,7 @@ public class PlayerDropItemListener implements Listener {
         Player player = event.getPlayer();
         Item item = event.getItemDrop();
         item.setOwner(player.getUniqueId());
-        player.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("pickup-delay-message")));
+        player.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("pickup-inform")));
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> item.setOwner(null), 160L);
 
     }

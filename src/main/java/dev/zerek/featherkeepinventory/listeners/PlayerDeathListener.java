@@ -3,7 +3,9 @@ package dev.zerek.featherkeepinventory.listeners;
 import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -13,17 +15,33 @@ public class PlayerDeathListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler (priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onPlayerDeath(PlayerDeathEvent event){
-        if (event.getPlayer().hasPermission("feather.keepinventory.keep")){
+        if (event.getPlayer().hasPermission("feather.keepinventory.keep")) {
             event.setKeepInventory(true);
             event.getDrops().clear();
             event.setShouldDropExperience(false);
-            plugin.getLogger().info(event.getPlayer().getName() + "is a new player and kept their items.");
-            event.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("keep")));
-            plugin.getServer().getOnlinePlayers().stream().filter(player2 -> player2.hasPermission("feather.keepinventory.staff")).forEach(staff -> {
-                staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-keep"), Placeholder.unparsed("player", event.getPlayer().getName())));
-            });
+
+            if (!event.getPlayer().hasPermission("feather.deathmessage.silent")) {
+                plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
+                        (String) plugin.getConfigMap().get("killed-announce"),
+                        Placeholder.unparsed("player", event.getPlayer().getName())
+                ));
+            }
+        }
+        if (event.getPlayer().getKiller() == null) return;
+        if (event.getPlayer().getKiller().hasPermission("feather.keepinventory.keep")) {
+            event.setKeepInventory(true);
+            event.getDrops().clear();
+            event.setShouldDropExperience(false);
+
+            if (!event.getPlayer().hasPermission("feather.deathmessage.silent")) {
+                plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
+                        (String) plugin.getConfigMap().get("killing-announce"),
+                        Placeholder.unparsed("attacker", event.getPlayer().getKiller().getName()),
+                        Placeholder.unparsed("defender", event.getPlayer().getName())
+                ));
+            }
         }
     }
 }

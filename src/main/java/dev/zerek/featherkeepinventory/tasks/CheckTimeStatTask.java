@@ -28,7 +28,8 @@ public class CheckTimeStatTask implements Runnable{
                         plugin.getServer().getOnlinePlayers()
                                 .stream()
                                 .filter(player2 -> player2.hasPermission("feather.keepinventory.staff"))
-                                .forEach(staff -> staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-timer-remove-keep"), Placeholder.unparsed("player", player.getName()))));
+                                .forEach(staff -> staff.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("staff-timer-remove-keep"),
+                                        Placeholder.unparsed("player", player.getName()))));
 
                 player.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("timer-remove-keep")));
             }
