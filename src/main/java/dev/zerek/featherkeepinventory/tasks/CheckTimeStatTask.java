@@ -3,7 +3,6 @@ package dev.zerek.featherkeepinventory.tasks;
 import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
-import net.luckperms.api.node.Node;
 import org.bukkit.Statistic;
 import org.bukkit.inventory.Inventory;
 

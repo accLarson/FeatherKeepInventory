@@ -2,7 +2,6 @@ package dev.zerek.featherkeepinventory;
 
 import dev.zerek.featherkeepinventory.listeners.*;
 import dev.zerek.featherkeepinventory.tasks.CheckTimeStatTask;
-import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
