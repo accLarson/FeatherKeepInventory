@@ -2,6 +2,7 @@ package dev.zerek.featherkeepinventory.listeners;
 
 import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +24,9 @@ public class PlayerDropItemListener implements Listener {
         Item item = event.getItemDrop();
         item.setOwner(player.getUniqueId());
         player.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("pickup-inform")));
+        if (item.getItemStack().getType() == Material.FEATHER && item.getItemStack().getItemMeta().hasLore()) {
+            player.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("feather-inform")));
+        }
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> item.setOwner(null), 160L);
 
     }

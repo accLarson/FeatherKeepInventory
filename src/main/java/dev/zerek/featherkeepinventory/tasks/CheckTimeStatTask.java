@@ -23,7 +23,7 @@ public class CheckTimeStatTask implements Runnable{
                 .forEach(player -> {
                     int playerMinutes = (player.getStatistic(Statistic.PLAY_ONE_MINUTE)/20/60);
                     if (playerMinutes >= this.keepInvMinutes) {
-                        plugin.getLuckPerms().getUserManager().modifyUser(player.getUniqueId(), user -> user.data().remove(Node.builder("feather.keepinventory.keep").build()));
+                        plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(),"lp user " + player.getName() + " permission unset feather.keepinventory.keep");
                         plugin.getLogger().info(player.getName() + " is no longer considered a new player - feather.keepinventory.keep permission node removed.");
                         plugin.getServer().getOnlinePlayers()
                                 .stream()

@@ -10,14 +10,11 @@ import java.util.HashMap;
 
 public final class FeatherKeepInventory extends JavaPlugin {
     HashMap<String,Object> configMap = new HashMap<>();
-    private LuckPerms luckPerms;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         getConfig().getKeys(false).forEach(c -> configMap.put(c,getConfig().get(c)));
-
-        luckPerms = Bukkit.getServicesManager().getRegistration(LuckPerms.class).getProvider();
 
         this.getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerDeathListener(this),this);
@@ -34,8 +31,5 @@ public final class FeatherKeepInventory extends JavaPlugin {
     }
     public HashMap<String, Object> getConfigMap() {
         return configMap;
-    }
-    public LuckPerms getLuckPerms() {
-        return luckPerms;
     }
 }
