@@ -1,16 +1,15 @@
 new-minutes: 60
-new-message: "<white>• <#91d1bd><player> <#5d9d88>is new and has keep-inventory for <#91d1bd><mins> minutes."
+new-message: "<white>• <#91d1bd><player> <#5d9d88>is new and has keep-inventory for <#91d1bd><remaining>m<#5d9d88>."
 
-killed-announce: "<white>• <#e2b492><player> <#b98863>has <#e2b492>keep-inventory <#b98863>so no items were dropped."
-killing-announce: "<white>• <#e2b492><attacker> <#b98863>has <#e2b492>keep-inventory <#b98863>so <#e2b492><defender> <#b98863>did not drop their items."
+killed-announce: "<white>• <#e2b492><player> <#b98863>has keep-inventory <#b98863>(<#e2b492><remaining>m<#b98863>) so no drops."
+killing-announce: "<white>• <#e2b492><attacker> <#b98863>has keep-inventory <#b98863>(<#e2b492><remaining>m<#b98863>) so <#e2b492><defender> <#b98863>dropped nothing."
 
-timer-remove-keep: "<#846d91>You've played for 1 hour! <br><#c0a1d1>Your keep-inventory status has been removed."
-staff-timer-remove-keep: "<#757575><player> has played for 1 hour! <br><#757575>Their keep-inventory status has been removed."
+timer-remove-keep: "<#846d91>You've played 1h! <br><#c0a1d1>Your keep-inventory has been removed."
+staff-timer-remove-keep: "<#757575><player> played 1h. <br><#757575>KI removed."
 
-end-remove-keep: "<#846d91>You've entered The End! <br><#c0a1d1>Your keep-inventory status has been removed."
-staff-end-remove-keep: "<#757575><player> has entered The End! <br><#757575>Their keep-inventory status has been removed."
+end-entry-blocked: "<#e06565>You can't enter The End with keep-inventory! <br><#e37f7f>Wait <remaining>m."
+staff-end-entry-blocked: "<#757575><player> tried to enter The End with KI – blocked. (<remaining>m)"
 
-pvp-inform: "<#c0a1d1>You have keep-inventory; players you kill <#f1d6ff>won’t drop items<#c0a1d1>. <br><#846d91>New players have keep-inventory for their 1st hour."
-pickup-inform: "<#c0a1d1>Only you can pick up that item for <#f1d6ff>8 SECONDS<#c0a1d1>. <br><#846d91>You get pickup priority on items you drop for your 1st hour."
-feather-inform: "<#e06565>Did someone tell you to drop your feather? <br><#e06565>They are trying to trick you, pick it up! <br><#e37f7f>/tip feather"
-
+pvp-inform: "<#c0a1d1>You have keep-inventory - players you kill <#f1d6ff>won't drop items<#c0a1d1> either."
+pickup-inform: "<#c0a1d1>Only you can pick that up for <#f1d6ff>8s<#c0a1d1>. <br><#846d91>this pickup priority ends in <#f1d6ff><remaining>m<#846d91>."
+feather-inform: "<#e06565>Did someone tell you to drop your feather? <br><#e06565>They're tricking you—pick it up! <br><#e37f7f>/tip feather"

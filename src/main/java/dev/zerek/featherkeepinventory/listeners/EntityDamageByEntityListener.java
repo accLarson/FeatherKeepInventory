@@ -2,6 +2,7 @@ package dev.zerek.featherkeepinventory.listeners;
 
 import dev.zerek.featherkeepinventory.FeatherKeepInventory;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -38,7 +39,9 @@ public class EntityDamageByEntityListener implements Listener {
 
         if (this.informedPlayers.contains(attacker)) return;
 
-        attacker.sendMessage(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("pvp-inform")));
+        attacker.sendMessage(MiniMessage.miniMessage().deserialize(
+                (String) plugin.getConfigMap().get("pvp-inform"),
+                Placeholder.unparsed("remaining", String.valueOf(plugin.getRemainingMinutes(attacker)))));
         this.informedPlayers.add(attacker);
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> this.informedPlayers.remove(attacker), 1200L);
     }

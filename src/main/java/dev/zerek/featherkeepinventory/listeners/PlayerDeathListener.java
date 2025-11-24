@@ -24,7 +24,8 @@ public class PlayerDeathListener implements Listener {
             if (!event.getPlayer().hasPermission("feather.deathmessage.silent")) {
                 plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
                         (String) plugin.getConfigMap().get("killed-announce"),
-                        Placeholder.unparsed("player", event.getPlayer().getName())
+                        Placeholder.unparsed("player", event.getPlayer().getName()),
+                        Placeholder.unparsed("remaining", String.valueOf(plugin.getRemainingMinutes(event.getPlayer())))
                 ));
             }
         }
@@ -38,7 +39,8 @@ public class PlayerDeathListener implements Listener {
                 plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
                         (String) plugin.getConfigMap().get("killing-announce"),
                         Placeholder.unparsed("attacker", event.getPlayer().getKiller().getName()),
-                        Placeholder.unparsed("defender", event.getPlayer().getName())
+                        Placeholder.unparsed("defender", event.getPlayer().getName()),
+                        Placeholder.unparsed("remaining", String.valueOf(plugin.getRemainingMinutes(event.getPlayer().getKiller())))
                 ));
             }
         }

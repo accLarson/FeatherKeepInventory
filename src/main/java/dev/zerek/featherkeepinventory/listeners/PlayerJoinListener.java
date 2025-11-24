@@ -18,7 +18,8 @@ public class PlayerJoinListener implements Listener {
         if (!event.getPlayer().hasPlayedBefore()) {
             plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize((String) plugin.getConfigMap().get("new-message"),
                     Placeholder.unparsed("player", event.getPlayer().getName()),
-                    Placeholder.unparsed("mins", plugin.getConfigMap().get("new-minutes").toString())));
+                    Placeholder.unparsed("mins", plugin.getConfigMap().get("new-minutes").toString()),
+                    Placeholder.unparsed("remaining", plugin.getConfigMap().get("new-minutes").toString())));
             plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(),"lp user " + event.getPlayer().getName() + " permission set feather.keepinventory.keep true");
         }
     }
