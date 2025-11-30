@@ -22,11 +22,17 @@ public class PlayerDeathListener implements Listener {
             event.setShouldDropExperience(false);
 
             if (!event.getPlayer().hasPermission("feather.deathmessage.silent")) {
-                plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
+                // Capture variables before the delay
+                final String playerName = event.getPlayer().getName();
+                final int remainingMinutes = plugin.getRemainingMinutes(event.getPlayer());
+                
+                plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+                    plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
                         (String) plugin.getConfigMap().get("killed-announce"),
-                        Placeholder.unparsed("player", event.getPlayer().getName()),
-                        Placeholder.unparsed("remaining", String.valueOf(plugin.getRemainingMinutes(event.getPlayer())))
-                ));
+                        Placeholder.unparsed("player", playerName),
+                        Placeholder.unparsed("remaining", String.valueOf(remainingMinutes))
+                    ));
+                }, 5L);
             }
         }
         if (event.getPlayer().getKiller() == null) return;
@@ -36,12 +42,19 @@ public class PlayerDeathListener implements Listener {
             event.setShouldDropExperience(false);
 
             if (!event.getPlayer().hasPermission("feather.deathmessage.silent")) {
-                plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
+                // Capture variables before the delay
+                final String attackerName = event.getPlayer().getKiller().getName();
+                final String defenderName = event.getPlayer().getName();
+                final int remainingMinutes = plugin.getRemainingMinutes(event.getPlayer().getKiller());
+                
+                plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+                    plugin.getServer().broadcast(MiniMessage.miniMessage().deserialize(
                         (String) plugin.getConfigMap().get("killing-announce"),
-                        Placeholder.unparsed("attacker", event.getPlayer().getKiller().getName()),
-                        Placeholder.unparsed("defender", event.getPlayer().getName()),
-                        Placeholder.unparsed("remaining", String.valueOf(plugin.getRemainingMinutes(event.getPlayer().getKiller())))
-                ));
+                        Placeholder.unparsed("attacker", attackerName),
+                        Placeholder.unparsed("defender", defenderName),
+                        Placeholder.unparsed("remaining", String.valueOf(remainingMinutes))
+                    ));
+                }, 5L);
             }
         }
     }
